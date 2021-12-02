@@ -42,7 +42,7 @@ defmodule Puzzles.DayOne.Two do
   defp sliding_slices([], _in_slices_of, accum), do: accum |> Enum.reverse()
 
   defp sliding_slices([_head | tail] = list, in_slices_of, accum) do
-    {current_slice, _remainder} = Enum.split(list, in_slices_of)
+    current_slice = Enum.take(list, in_slices_of)
 
     sliding_slices(tail, in_slices_of, [current_slice | accum])
   end
